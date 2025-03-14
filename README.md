@@ -52,7 +52,8 @@
 ./3-setup-cuda-environment.sh
 ```
 🔍 **功能**：配置必要的環境變數（PATH、LD_LIBRARY_PATH等），使系統能夠找到CUDA工具。
-✅ **成果**：執行後，您可以直接使用`nvcc`等CUDA命令。
+⚠️ **重要提示**：環境變數設定後需要**重新開啟終端機**或**重新登入**才能完全生效。
+✅ **成果**：正確生效後，您可以在任何終端使用`nvcc`等CUDA命令。
 
 #### 🔄 一體化安裝腳本
 ```bash
@@ -128,8 +129,10 @@ Cuda compilation tools, release 12.8, V12.8.x
    - 然後運行`sudo ubuntu-drivers autoinstall`嘗試自動安裝適合的驅動
 
 4. **CUDA命令無法使用**
-   - 確保已運行`source ~/.bashrc`或登出並重新登入
+   - 環境變數設定後需要重新開啟終端機或重新登入系統
+   - 手動使環境變數生效：`source ~/.bashrc` (或您的shell配置文件)
    - 檢查CUDA路徑：`echo $PATH`應包含CUDA路徑
+   - 如果上述方法都不起作用，嘗試系統重啟
 
 ## 📚 更多資源
 

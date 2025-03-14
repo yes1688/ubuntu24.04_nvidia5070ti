@@ -148,10 +148,12 @@ case $STAGE in
     echo "=== 安裝完成! ==="
     echo "NVIDIA驅動和CUDA工具包已成功安裝"
     echo ""
-    echo "請運行以下命令使環境變數立即生效:"
-    echo "source $SHELL_CONFIG"
+    echo "⚠️  重要提示: CUDA環境變數已添加，但可能需要以下操作才能完全生效:"
+    echo "1. 重新開啟終端機"
+    echo "2. 登出後再重新登入"
+    echo "3. 或立即手動執行: source $SHELL_CONFIG"
     echo ""
-    echo "然後使用以下命令驗證CUDA安裝:"
+    echo "環境變數生效後，使用以下命令驗證CUDA安裝:"
     echo "nvcc --version"
     ;;
 

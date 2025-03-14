@@ -28,20 +28,24 @@ else
 fi
 
 # 使環境變數立即生效
-echo "正在使環境變數生效..."
-source "$SHELL_CONFIG"
+echo "嘗試在當前終端生效環境變數..."
+source "$SHELL_CONFIG" 2>/dev/null || true
 
 # 驗證CUDA安裝
 echo "驗證CUDA工具包安裝:"
 if command -v nvcc &>/dev/null; then
     nvcc --version
-    echo "CUDA環境設置成功!"
+    echo "CUDA環境在當前終端設置成功!"
 else
-    echo "警告: nvcc命令仍無法使用。"
-    echo "請確認CUDA工具包已正確安裝，路徑是否為 /usr/local/cuda-12.8"
-    echo "如果路徑不同，請編輯腳本並修改CUDA_HOME變數。"
+    echo "注意: nvcc命令在當前終端無法使用。"
+    echo "這可能是因為環境變數尚未在所有終端會話中生效。"
 fi
 
 echo ""
-echo "您也可以手動運行以下命令使環境變數立即生效:"
-echo "source $SHELL_CONFIG"
+echo "⚠️  重要提示 ⚠️"
+echo "環境變數已添加到 $SHELL_CONFIG，但可能需要以下操作才能完全生效:"
+echo "1. 重新開啟終端機"
+echo "2. 登出後再重新登入"
+echo "3. 或手動執行: source $SHELL_CONFIG"
+echo ""
+echo "完整生效後，您可以在任何終端中使用 'nvcc --version' 驗證安裝"
